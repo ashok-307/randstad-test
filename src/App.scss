@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+p, figure {
+    margin: 0;
+}
+.py-1 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.text-success {
+    color: #26df30;
+}
+.list-film-count {
+    font-size: 12px;
+    background: #feefee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+}
+#header {
+    background: #555;
+    color: #fff;
+    ul {
+        &.menus {
+            display: flex;
+            align-items: center;
+        }
+        li {
+            a {
+                color: #fff;
+                padding: 10px 15px;
+                display: inline-block;
+                text-decoration: none;
+                &:hover, &.active {
+                    background-color: #ddd;
+                    color: #555;
+                }
+            }
+        }
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.star-ships-container {
+    padding: 10px;
+    .star-ships-lists {
+        display: flex;
+        flex-wrap: wrap;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+        .star-ship-list {
+            flex: 1 0 200px;
+            // border: 1px solid #555;
+            padding: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #55555536;
+            box-shadow: 0 2px 20px rgb(0 0 0 / 15%);
+            border-radius: 5px;
+            .lists {
+                width: calc(100% - 20px);
+                .list {
+                    display: flex;
+                    .list-label {
+                        min-width: 100px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Suspense } from 'react';
+import { Routes, Route, NavLink, useLocation } from 'react-router-dom';
 import './App.scss';
 
+const Dashboard = React.lazy(() => import('./pages/Dashboard/Dashboard'));
+const StartShips = React.lazy(() => import('./pages/StarShips/Star-ships'));
+
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header id="header">
+        <ul className='menus'>
+          <li><NavLink to={'/'} className={location.pathname === '/' ? 'active' : ''}>Dashboard</NavLink></li>
+          <li><NavLink to={'/star-ships'} className={location.pathname.includes('/star-ships') ? 'active' : ''}>StartShips</NavLink></li>
+        </ul>
       </header>
+      <Suspense>
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/star-ships' element={<StartShips />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }
